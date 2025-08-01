@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playwrite+AU+NSW:wght@100..400&display=swap');
+html {
+      scroll-behavior: smooth;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #282828;
+  color: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.header {
+  background-color: #282828;
+  padding: 20px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: "Inter", cursive;
+  font-optical-sizing: auto;
+  font-weight: 10;
+  font-style: normal;
+  font-size: 24px;
+}
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50px;
+  transform: translateY(-50%);
+  max-height: 86px;
+  height: auto;
+  width: auto; 
+}
+
+.header h1 {
+  font-size: 2.5em;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.nav {
+  margin-top: 20px;
+}
+
+.nav a {
+  color: #d79158;
+  text-decoration: none;
+  margin: 0 20px;
+  font-family: "Inter", sans-serif;
+  font-weight: 200;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #fff;
+}
+.socials {
+  position:absolute;
+  right: 500px;
+}
+
+.lng {
+  position: absolute; right: 1%; top:50%; transform: translateY(-50%);max-height: 64px;height: auto;width: auto;
+}
+.lng:hover {
+  cursor: pointer;
+}
+
+.hero {
+  position: relative;
+  background-image: url('../img/nn.png');
+  background-size: cover;
+  background-position: center;
+  padding: 200px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 1;
+}
+
+.hero h2, .hero h3 {
+  position: relative;
+  z-index: 2; 
+}
+
+.hero h2, .hero h3 {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h2 {
+  font-family: "Playwrite AU NSW", cursive;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 3em;
+  padding: 20px;
+  transition: all 0.4s ease;
+    filter: brightness(1);
+}
+
+.hero h2:hover {
+    cursor: pointer;
+    color: #ffffff;
+  color: #d79158;
+  text-shadow: 0 6px 12px #d79158;
+  transform: scale(1.05) translateY(-2px);
+}
+
+  .hero h3 {
+  font-family: "Playwrite AU NSW", cursive;
+    position: absolute;
+    margin-bottom: 23%;
+    margin-right: 1600px;
+      font-weight: 500;
+  }
+
+.about {
+  padding: 60px 20px;
+  background-color: #282828;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+    font-family: "Inter", sans-serif;
+  font-weight: 200;
+}
+
+.about h3 {
+  font-size: 3em;
+  font-weight: 400;
+  color: #d79158;
+  font-family: "Inter", sans-serif;
+  margin-bottom: 20px;
+}
+
+.about p {
+  max-width: 800px;
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.about button {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  background-color: #d79158;
+  padding: 16px;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+.about button:hover {
+  cursor: pointer;
+    background-color: #9c6a42;
+}
+
+
+.rooms {
+font-size: 2.5em;
+font-family: "Inter", sans-serif;
+font-weight: 400;
+text-align:center; color:#d79158
+}
+
+.guest h3 {
+  text-align: center;
+  font-size: 2.5em;
+font-family: "Inter", sans-serif;
+font-weight: 400;
+text-align:center; color:#d79158
+}
+
+.review-square {
+  min-width: 300px; margin: 0 10px; background-color: #333; padding: 20px; border-radius: 10px;
+}
+
+.location {
+    padding: 60px 20px;
+  background-color: #282828;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+    font-family: "Inter", sans-serif;
+  font-weight: 200;
+}
+.location h3 {
+  font-size: 2em;
+  font-family: "Inter", sans-serif;
+  color: #d79158;
+    font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.contact {
+  padding: 60px 20px;
+  background-color: #1f1f1f;
+  text-align: center;
+}
+
+.contact h3 {
+  font-size: 2em;
+      font-family: "Inter", sans-serif;
+  color: #d79158;
+    font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.contact form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact input, .contact textarea {
+  padding: 15px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 8px;
+  background: #3a3a3a;
+  color: #fff;
+  font-size: 1em;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.contact button {
+  padding: 15px;
+  background-color: #d79158;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact button:hover {
+  background-color: #96663e;
+}
+
+footer {
+  background-color: #282828;
+  padding: 20px;
+  text-align: center;
+  border-top: 2px solid #d79158;
+  margin-top: 40px;
+}
+
+footer p {
+  color: #777;
+  font-size: 0.9em;
+}
+
+pre {
+    font-family: "Inter", sans-serif;
+}
+
+  .reviews {
+    background-color: #333; margin: 0 10px; padding: 20px; border-radius: 10px;
+    min-width: 400px;
+  }
+
+  .insta {
+  position: absolute; right: 3%; top: 25%
+}
+
+@media(max-width: 768px){
+
+  .features-container {
+    gap: 10px;
+  }
+
+  .nav {
+  margin-top: 30px;
+}
+
+.language-selector {
+  position: absolute;
+    top: 15%;
+  right: 20%;
+  max-height: 64px;
+}
+
+.LanguageOptions {
+  position: absolute;
+  left: 50%;
+}
+
+  .header img {
+  top: 15%;
+  left: 40%;
+  transform: translateY(-50%);
+  max-height: 64px;
+  height: auto;
+  width: auto; 
+  margin-bottom: 50px;
+}
+
+.insta {
+  position: absolute; right: 30%; top: 15%
+}
+
+  p {
+    font-size: 13px;
+  }
+  .reviews {
+    background-color: #333; margin: 0 10px; padding: 20px; border-radius: 10px;
+    display: inline-block;
+  transform-origin: left top;
+  min-width: auto;
+  }
+
+  .review-item {
+    width: 90%;
+  }
+
+  .hero h2 {
+    font-size: 2em;
+  }
+
+    #rooms h3 {
+    font-weight: 400;
+  }
+
+    #rooms {
+      padding: 10px;
+    }
+    #rooms h3 {
+      font-size: 20px;
+    }
+    #rooms div:nth-child(2) {
+      flex-direction: column;
+      align-items: center;
+    }
+    #rooms div:nth-child(2) > div {
+      flex-direction: row;
+      gap: 5px;
+      margin-bottom: -5%;
+    }
+}
