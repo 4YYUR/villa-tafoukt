@@ -111,13 +111,7 @@
     onmouseover="this.style.transform='scale(1.1)'" 
     onmouseout="this.style.transform='scale(1)'"
   >
-        <img 
-    style="width: 90%; max-width: 500px; cursor:pointer; transition: transform 0.3s;"
-    src="assets/img/garten.jpg".jpg" 
-    onclick="openGallery(6)"
-    onmouseover="this.style.transform='scale(1.1)'" 
-    onmouseout="this.style.transform='scale(1)'"
-  >
+
 </div>
 
 <div id="lightbox" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color: rgba(0,0,0,0.9); justify-content:center; align-items:center; z-index:9999; flex-direction: column;">
@@ -230,7 +224,7 @@
         <strong style="color:#d79158;">Airport</strong>
       </div>    <a href="https://maps.app.goo.gl/DZWHtmELqFMTCx7t8" target=_blank style="color:white;font-weight: 300;">• Agadir–Al Massira Airport </a><a style="font-size: 20px;">45 km</a><br>
   </div>
-  <div class="map-container" style="position:relative; left:70%; bottom:50%;">
+  <div class="map-container" style="position:relative; left:70%; bottom:100%; margin-bottom: -500px;">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3435.1871833611767!2d-9.708250223893527!3d30.57226089336942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdb24d48757be715%3A0xb8b0f53787e9d3ac!2sVilla%20Tafoukt!5e0!3m2!1sde!2sma!4v1753725977629!5m2!1sde!2sma" allowfullscreen="" loading="lazy" style="position:relative; width:40%; height: 500px; margin-bottom: -790px; top: -500px; border-radius: 10px;"></iframe>
   </div>
   <style>
@@ -242,105 +236,79 @@
 </style>
 </section>
 
-<section id="reviews" style="padding:60px; background-color:#222; color:#fff;" class="guest">
+<section id="reviews">
   <h3>Guest Reviews</h3>
-  <div style="position: relative; max-width: 100%; margin: 20px auto;">
-    <div id="reviewsSlider" style="display: flex; overflow: hidden; scroll-behavior: smooth;">
-      
-                <div class="reviews">
-        <p style="color: gold; font-size: 19px;">★★★★★</p>
-        <p>“A beautiful house with a beautiful view. Friendly host, the couple helped us find the house. They are friendly and wanted to help with everything.
-The bedrooms are large and ideal that each bedroom has its own bathroom. The kitchen is equipped with everything you need. And because of the amount of terraces there is always a place in the sun or shade to be found.“</p>
-        <strong>
-          <img src="assets/img/nl.webp" style="width:20px; height:auto; vertical-align:middle; margin-right:8px;">
-Rosalie
-        </strong>
-      </div>
 
-                  <div  class="reviews">
-        <p style="color: gold; font-size: 19px;">★★★★★</p>
-        <p>“The villa is super well appointed and cozy. We travel with 2 children and my elderly mother-in-law. We enjoyed the ground floor room for her. The views from the rooms are exceptional! Kathrin is super attentive and her breakfasts are hearty and delicious!“</p>
-        <strong>
-          <img src="assets/img/be.webp" style="width:20px; height:auto; vertical-align:middle; margin-right:8px;">
-Alexandra
-        </strong>
-      </div>
+  <div class="reviews-wrapper">
 
-      <div class="reviews">
-        <p style="color: gold; font-size: 19px;">★★★★★</p>
-        <p>“The apartment is large and well furnished and well-equipped. From the house you have a nice view of the mountains. The apartment has a garden and roof garden to sit outside.”</p>
-        <strong>
-          <img src="assets/img/de.webp" style="width:20px; height:auto; vertical-align:middle; margin-right:8px;">
-          Martin
-        </strong>
-      </div>
-
-      <div class="reviews">
-        <p style="color: gold; font-size: 19px;">★★★★★</p>
-        <p>“Very beautiful house and especially very nice home, I recommend without hesitation”</p>
-        <strong>
-          <img src="assets/img/fr.webp" style="width:20px; height:auto; vertical-align:middle; margin-right:8px;">         
-Nathalie
-        </strong>
-      </div>
-
-      <div class="reviews">
-        <p style="color: gold; font-size: 19px;">★★★★★</p>
-        <p>“Very nice house, great potential, panoramic terrace, parking, tranquility, super welcome”</p>
-        <strong>
-          <img src="assets/img/it.webp" style="width:20px; height:auto; vertical-align:middle; margin-right:8px;">
-Francesca
-        </strong>
-      </div>
-
-            <div class="reviews">
-        <p style="color: gold; font-size: 19px;">★★★★★</p>
-        <p>“Very quietly located, a lot of space in the house, everything available in the kitchen”</p>
-        <strong>
-          <img src="assets/img/at.webp" style="width:20px; height:auto; vertical-align:middle; margin-right:8px;">
-Iris
-        </strong>
-      </div>
-
-            <div class="reviews">
-        <p style="color: gold; font-size: 19px;">★★★★★</p>
-        <p>“Excellently furnished and spacious villa. Beautiful panoramic views. We really enjoyed our stay in this villa.”</p>
-        <strong>
-          <img src="assets/img/lv.webp" style="width:20px; height:auto; vertical-align:middle; margin-right:8px;">
-Sandra
-        </strong>
-      </div>
-
-          <div class="reviews">
-        <p style="color: gold; font-size: 19px;">★★★★★</p>
-        <p>“Great stay in the villa tafoukt!
-The welcome from Kathrin and Mounir is amazing as is the view of the mountains and the ocean! Warm and generous, the villa is fully equipped and very nicely decorated..“</p>
-        <strong>
-          <img src="assets/img/fr.webp" style="width:20px; height:auto; vertical-align:middle; margin-right:8px;">
-Elodie
-        </strong>
-      </div>
-      
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>“A beautiful house with a stunning view. Friendly host, cozy atmosphere.”</p>
+      <strong><img src="assets/img/nl.webp"> Rosalie</strong>
     </div>
-    <button id="slideLeft" style="position: absolute; top: 50%; left: -40px; transform: translateY(-50%); font-size: 30px; background:none; border:none; color:#fff; cursor:pointer;">◀</button>
-    <button id="slideRight" style="position: absolute; top: 50%; right: -40px; transform: translateY(-50%); font-size: 30px; background:none; border:none; color:#fff; cursor:pointer;">▶</button>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>“Everything was perfect. The villa feels luxurious and peaceful.”</p>
+      <strong><img src="assets/img/be.webp"> Alexandra</strong>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>“Large, well-furnished apartment with breathtaking views. Highly recommended.”</p>
+      <strong><img src="assets/img/de.webp"> Martin</strong>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>“Beautiful house and very warm reception. We will definitely come again.”</p>
+      <strong><img src="assets/img/fr.webp"> Nathalie</strong>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>“Panoramic terrace, silence, comfort — the perfect retreat.”</p>
+      <strong><img src="assets/img/it.webp"> Francesca</strong>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>“Very quiet location with lots of space and incredible scenery.”</p>
+      <strong><img src="assets/img/at.webp"> Iris</strong>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>“Excellent villa with mountain & ocean views. 100% recommended.”</p>
+      <strong><img src="assets/img/lv.webp"> Sandra</strong>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>“Amazing hospitality. The views are unreal — magical place.”</p>
+      <strong><img src="assets/img/fr.webp"> Elodie</strong>
+    </div>
+
   </div>
-  <a style="position:relative; display:block; width:100%; text-align:center; margin-top:20px; font-size:1em; color:#d79158; text-decoration:underline;" href="https://www.booking.com/hotel/ma/villa-tafoukt-taghazout.html?activeTab=main#tab-reviews" target=_blank>View All Reviews</a>
+
+  <a href="https://www.booking.com/hotel/ma/villa-tafoukt-taghazout.html?activeTab=main#tab-reviews"
+     target="_blank"
+     style="color:#d8b27a; text-decoration:underline; margin-top:25px; display:block;">
+     View All Reviews
+  </a>
 </section>
 
-<script>
-  const slider = document.getElementById('reviewsSlider');
-  const slideAmount = 320;
-  document.getElementById('slideLeft').addEventListener('click', () => {
-    slider.scrollBy({ left: -slideAmount, behavior: 'smooth' });
-  });
-  document.getElementById('slideRight').addEventListener('click', () => {
-    slider.scrollBy({ left: slideAmount, behavior: 'smooth' });
-  });
-</script>
 <section id="contact" class="contact">
     <h3>Our Openings</h3></section>
-<iframe name="webplanner22744" width="100%" frameborder="0" height="450" src="https://www.webplanner.de/tools/?6c35353a37373070363065343069"></iframe><script type="text/javascript" src="https://www.webplanner.de/tools/js/10686-22744.js"></script>
+<iframe 
+    id="mapframe"
+    name="webplanner22744" 
+    src="https://www.webplanner.de/tools/?6c35353a37373070363065343069"
+    width="1000%" 
+    frameborder="0">
+</iframe>
+
+<script src="https://www.webplanner.de/tools/js/10686-22744.js"></script>
 
 <section id="contact" class="contact">
     <h3>Contact Us</h3>
