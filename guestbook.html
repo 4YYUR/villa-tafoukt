@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Villa Tafoukt - Guestbook Portal</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playwrite+AU+NSW:wght@100..400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght=100..900&family=Playwrite+AU+NSW:wght=100..400&display=swap');
 
         :root {
             --primary-blue: #1d3557;
@@ -67,7 +67,8 @@
             position: relative;
             width: 100%;
             height: 260px;
-            background: url('assets/img/room2.jpg') center/cover no-repeat;
+            background: url('assets/img/gartenn.jpeg') center/cover no-repeat;
+            filter: brightness(0.8);
             display: flex;
             align-items: flex-end;
             justify-content: flex-end;
@@ -165,6 +166,10 @@
 
         .btn-rules {
             background-color: #118ab2;
+        }
+
+        .btn-location {
+            background-color: #e76f51;
         }
 
         .welcome-footer {
@@ -316,6 +321,12 @@
                 <span class="label-text">Rule Book</span>
             </button>
 
+            <!-- New Location Button -->
+            <button class="menu-item btn-location" onclick="openModal('modal-location')">
+                <span class="icon-box">📍</span>
+                <span class="label-text">Location</span>
+            </button>
+
         </nav>
 
         <div class="welcome-footer">
@@ -414,6 +425,24 @@
                     <li>Don't feed strays and keep distance for your own health</li>
                     <li>No parties allowed</li>
                     <li>Smoking only outside</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Location Modal -->
+    <div id="modal-location" class="modal-overlay" onclick="closeModalOnOverlay(event)">
+        <div class="modal-box">
+            <div class="modal-header" style="background-color: #e76f51;">
+                <span>Address & Location</span>
+                <button class="modal-close" onclick="closeModal('modal-location')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <ul class="info-list">
+                    <li style="font-weight: bold; color: #ffffff;">Villa Tafoukt Ait Bouaud</li>
+                    <li>Taghazout, Morocco</li>
+                    <li>80022 Taghazout ⵜⴰⵖⴰⵣⵓⵜ تغازوت</li>
+                    <li>Souss-Massa ⵙⵓⵙⵙ-ⵎⴰⵙⵙⴰ سوس-ماسة, MA</li>
                 </ul>
             </div>
         </div>
