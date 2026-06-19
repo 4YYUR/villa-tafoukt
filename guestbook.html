@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Villa Tafoukt - Guestbook Portal</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playwrite+AU+NSW:wght@100..400&display=swap');
+
+        :root {
+            --primary-blue: #1d3557;
+            --accent-teal: #009688;
+            --accent-blue-light: #00a8cc;
+            --bg-light: #f8f9fa;
+            --text-dark: #2b2d42;
+            font-family: "Inter", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #282828;
+            font-family: "Inter", sans-serif;
+            color: var(--text-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .guestbook-container {
+            width: 100%;
+            max-width: 500px;
+            background: #282828;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .brand-bar {
+            background-color: #282828;
+            color: #f39c63;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .brand-logo-text {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .brand-icon {
+            font-size: 1.3rem;
+        }
+
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 260px;
+            background: url('assets/img/room2.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 43% 40% 45% 40%;
+            background-color: rgba(255, 255, 255, 0.05);
+            top: -50px;
+            left: -50px;
+        }
+
+        .main-title {
+            font-family: "Playwrite AU NSW", cursive;
+            position: relative;
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: #d79158;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        .menu-stack {
+            padding: 25px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: #282828;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.2s ease, filter 0.2s ease;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.02);
+            filter: brightness(1.08);
+        }
+
+        .icon-box {
+            font-size: 1.6rem;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 6px 0 0 6px;
+            min-width: 65px;
+        }
+
+        .label-text {
+            padding: 12px 20px;
+            flex-grow: 1;
+        }
+
+        .btn-rent {
+            background-color: #4a90e2;
+        }
+
+        .btn-checkin {
+            background-color: var(--accent-teal);
+            border-radius: 6px 20px 20px 6px;
+        }
+
+        .btn-checkout {
+            background-color: var(--accent-blue-light);
+            position: relative;
+            clip-path: polygon(0% 0%, 88% 0%, 100% 50%, 88% 100%, 0% 100%);
+            padding-right: 25px;
+        }
+
+        .btn-tour {
+            background-color: #2a9d8f;
+        }
+
+        .btn-rules {
+            background-color: #118ab2;
+        }
+
+        .welcome-footer {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            font-family: Georgia, serif;
+            font-size: 1.4rem;
+            font-style: italic;
+            letter-spacing: 0.5px;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-box {
+            background: #1e1e1e;
+            width: 100%;
+            max-width: 440px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: translateY(0);
+        }
+
+        .modal-header {
+            padding: 18px 20px;
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-transform: uppercase;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .modal-body {
+            padding: 25px 20px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 14px;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #bebebe;
+        }
+
+        .info-list li::before {
+            content: "•";
+            position: absolute;
+            left: 5px;
+            top: -2px;
+            color: inherit;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 400px) {
+            .main-title {
+                font-size: 2.6rem;
+            }
+
+            .menu-item {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="guestbook-container">
+
+        <div class="brand-bar">
+            <span class="brand-logo-text"></span>
+            <span class="brand-icon"><img src="assets/img/villa.png" style="width: 100px;" alt="Villa Tafoukt"></span>
+        </div>
+
+        <div class="hero-section">
+            <h1 class="main-title">Guestbook</h1>
+        </div>
+
+        <nav class="menu-stack">
+
+            <button class="menu-item btn-rent" onclick="openModal('modal-rent')">
+                <span class="icon-box">🚗</span>
+                <span class="label-text">Rent A Car</span>
+            </button>
+
+            <button class="menu-item btn-checkin" onclick="openModal('modal-checkin')">
+                <span class="icon-box">🔑</span>
+                <span class="label-text">Check In</span>
+            </button>
+
+            <button class="menu-item btn-checkout" onclick="openModal('modal-checkout')">
+                <span class="icon-box">➔</span>
+                <span class="label-text">Check Out</span>
+            </button>
+
+            <button class="menu-item btn-tour" onclick="openModal('modal-tour')">
+                <span class="icon-box">🚌</span>
+                <span class="label-text">Tour!</span>
+            </button>
+
+            <button class="menu-item btn-rules" onclick="openModal('modal-rules')">
+                <span class="icon-box">📘</span>
+                <span class="label-text">Rule Book</span>
+            </button>
+
+        </nav>
+
+        <div class="welcome-footer">
+            Welcome to our house.
+        </div>
+
+    </div>
+
+    <div id="modal-rent" class="modal-overlay" onclick="closeModalOnOverlay(event)">
+        <div class="modal-box">
+            <div class="modal-header" style="background-color: #4a90e2;">
+                <span>Rent A Car</span>
+                <button class="modal-close" onclick="closeModal('modal-rent')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <ul class="info-list" style="--bullet-color: #4a90e2;">
+                    <li>obelixtours@gmail.com</li>
+                    <li>+212 662 789 008</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-checkin" class="modal-overlay" onclick="closeModalOnOverlay(event)">
+        <div class="modal-box">
+            <div class="modal-header" style="background-color: var(--accent-teal);">
+                <span>Check In</span>
+                <button class="modal-close" onclick="closeModal('modal-checkin')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <ul class="info-list">
+                    <li>Check in ready from 4 PM</li>
+                    <li>WIFI Access Villa Tafoukt ist free</li>
+                    <li>Keybox code 1111</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-checkout" class="modal-overlay" onclick="closeModalOnOverlay(event)">
+        <div class="modal-box">
+            <div class="modal-header" style="background-color: var(--accent-blue-light);">
+                <span>Check Out</span>
+                <button class="modal-close" onclick="closeModal('modal-checkout')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <ul class="info-list">
+                    <li>Check out until 11 AM</li>
+                    <li>Leave the keys in the box and lock it</li>
+                    <li>Please don't forget your essentials like Passport, Phone and Medicin</li>
+                    <li>Please close the door and windows and switch off the lights</li>
+                    <li>Please don't leave your waste in the house or in the front yard (cat's and pests)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-tour" class="modal-overlay" onclick="closeModalOnOverlay(event)">
+        <div class="modal-box">
+            <div class="modal-header" style="background-color: #2a9d8f;">
+                <span>Local Tours</span>
+                <button class="modal-close" onclick="closeModal('modal-tour')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <ul class="info-list">
+                    <li>Paradise Valley</li>
+                    <li>Souk Agadir ( Monday closed )</li>
+                    <li>Dolphin World Anza</li>
+                    <li>Crocopark Anza</li>
+                    <li>Telemetric Agadir</li>
+                    <li>Danialand Waterpark Agadir</li>
+                    <li>Quad Taghazout</li>
+                    <li>Hamam and Spa Ait Bihi</li>
+                    <li>Timaline Sandboarding Imsouane</li>
+                    <li>Skatepark Taghazout</li>
+                    <li>Surf lesson Taghazout</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-rules" class="modal-overlay" onclick="closeModalOnOverlay(event)">
+        <div class="modal-box">
+            <div class="modal-header" style="background-color: #118ab2;">
+                <span>Rule Book</span>
+                <button class="modal-close" onclick="closeModal('modal-rules')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <ul class="info-list">
+                    <li>Quiet hours from 11PM - 8AM</li>
+                    <li>Water is very precious here, so please be mindful of this</li>
+                    <li>Waste disposal on the way to Taghazout beach</li>
+                    <li>In strong winds, please close the shutters and retract the awning</li>
+                    <li>Please close all the windows and doors when leaving the house</li>
+                    <li>Please contact us immediately if you have any problems</li>
+                    <li>Don't feed strays and keep distance for your own health</li>
+                    <li>No parties allowed</li>
+                    <li>Smoking only outside</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        function closeModalOnOverlay(event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                event.target.classList.remove('active');
+            }
+        }
+    </script>
+
+</body>
+
+</html>
